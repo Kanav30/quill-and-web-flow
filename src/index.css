@@ -74,11 +74,14 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 .note-content {
   @apply focus:outline-none w-full;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .note-content p {
@@ -103,4 +106,21 @@
 
 .note-content ol {
   @apply list-decimal;
+}
+
+/* Additional styles for the note editor */
+.note-content::placeholder {
+  @apply text-muted-foreground/60;
+}
+
+/* Smooth transitions */
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-200 hover:shadow-md;
 }
